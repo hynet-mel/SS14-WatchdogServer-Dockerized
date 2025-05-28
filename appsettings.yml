@@ -31,14 +31,14 @@ AllowedHosts: "*"
 #BaseUrl: https://your.domain.com/watchdog/
 BaseUrl: http://localhost:5000/
 
+
 Servers:
   Instances:
-    # ID (and directory) of your server.
-    test:
+    example:
       # Name of the server
-      Name: "Test Instance"
+      Name: "Birber Station 14"
       # Token to control the instance remotely
-      ApiToken: "foobar"
+      ApiToken: "explosive_honk_assblast"
       # Port OF THE GAME SERVER.
       # This should match the HTTP status API
       # or watchdog can't contact the server.
@@ -46,6 +46,14 @@ Servers:
 
       # Auto update configuration. This can be
       # omitted to skip auto updates.
-      UpdateType: "Manifest"
+
+      UpdateType: "Git"
       Updates:
-        ManifestUrl: "https://central.spacestation14.io/builds/wizards/manifest.json"
+        # BaseUrl: The URL of the Git repository to watch.
+        # This is distinct from the Watchdog-wide BaseUrl.
+        BaseUrl: "https://github.com/hyena-network/birber-14/"
+        # Branch: The branch to watch.
+        Branch: "master"
+        # Hybrid ACZ: When enabled, the game server hosts the client zip rather than the watchdog.
+        # As of the introduction of delta updating this is now the better way to handle this.
+        HybridACZ: true
